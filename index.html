@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified NEB SEE GPA Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .card-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-900">
+
+    <!-- Header Section -->
+    <div class="gradient-bg text-white pt-12 pb-24 px-4 text-center">
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-2">NEB SEE GPA Calculator</h1>
+        <p class="text-blue-100 opacity-90 max-w-xl mx-auto">Latest 2080/81 Curriculum (32 Credit Hour System)</p>
+        <div class="mt-4 inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full text-sm border border-white/20">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            Assumed A+ in all Practicals (Fixed 4.0 GP)
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 -mt-16 pb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Input Section -->
+            <div class="lg:col-span-8 space-y-6">
+                <div class="bg-white rounded-3xl p-6 md:p-8 card-shadow border border-slate-100">
+                    <div class="flex items-center gap-3 mb-8 border-b border-slate-100 pb-4">
+                        <div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <h2 class="text-xl font-bold">Theory Grade Entry</h2>
+                    </div>
+
+                    <form id="calculatorForm" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                        <!-- Group 1: 5 CH Subjects -->
+                        <div class="space-y-5">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                <i class="fa-solid fa-star text-amber-400"></i> Core (3.75 TH CH)
+                            </h3>
+                            
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">English</label>
+                                <select id="th_english" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nepali</label>
+                                <select id="th_nepali" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Mathematics</label>
+                                <select id="th_maths" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Science & Technology</label>
+                                <select id="th_science" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Group 2: 4 CH Subjects -->
+                        <div class="space-y-5">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-blue-400"></i> Others (3.0 TH CH)
+                            </h3>
+                            
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Social Studies</label>
+                                <select id="th_social" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Optional Mathematics</label>
+                                <select id="th_optmaths" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+
+                            <div class="subject-row">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Computer Science</label>
+                                <select id="th_computer" class="grade-input w-full bg-slate-50 border border-slate-200 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all">
+                                    <option value="4.0">A+ (90-100)</option><option value="3.6">A (80-89)</option><option value="3.2">B+ (70-79)</option><option value="2.8">B (60-69)</option><option value="2.4">C+ (50-59)</option><option value="2.0">C (40-49)</option><option value="1.6">D (35-39)</option><option value="0.0">NG (Below 35)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Floating Result Display -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-8 space-y-6">
+                    <!-- GPA Card -->
+                    <div class="bg-white rounded-3xl p-8 card-shadow border border-slate-100 text-center relative overflow-hidden">
+                        <div id="statusIndicator" class="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
+                        <h3 class="text-slate-500 font-medium mb-2 uppercase tracking-tighter text-sm">Calculated Total GPA</h3>
+                        <div id="gpaValue" class="text-7xl font-black text-blue-600 mb-4 tracking-tighter transition-all duration-300">
+                            4.00
+                        </div>
+                        <div id="gpaRemark" class="inline-block px-5 py-2 rounded-2xl bg-green-100 text-green-700 font-bold text-sm mb-6">
+                            OUTSTANDING
+                        </div>
+                        
+                        <div class="pt-6 border-t border-slate-100">
+                            <div class="flex justify-between text-xs text-slate-500 mb-2">
+                                <span>Total Weighted Points</span>
+                                <span id="pointsSum" class="font-bold text-slate-800">128.00</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div id="progressBar" class="h-full bg-blue-600 transition-all duration-500" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule Breakdown Card -->
+                    <div class="bg-slate-900 rounded-3xl p-6 text-white card-shadow">
+                        <h4 class="font-bold text-sm mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-blue-400"></i> Grading Logic
+                        </h4>
+                        <div class="space-y-3 text-xs opacity-80 leading-relaxed">
+                            <p>• Total Credit Hours (CH) is fixed at <strong>32.0</strong>.</p>
+                            <p>• Practical marks assume <strong>A+ (4.0 GP)</strong> per your request.</p>
+                            <p>• <strong>Non-Graded (NG):</strong> If any theory subject is below 35% (D grade boundary), the GPA is invalid for graduation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-10 text-slate-400 text-sm">
+        <p>&copy; 2081 Verified NEB GPA Calculation Standard</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('.grade-input');
+            const gpaValue = document.getElementById('gpaValue');
+            const gpaRemark = document.getElementById('gpaRemark');
+            const pointsSumDisplay = document.getElementById('pointsSum');
+            const progressBar = document.getElementById('progressBar');
+            const statusIndicator = document.getElementById('statusIndicator');
+
+            // 2080/81 Weights
+            const WEIGHTS = {
+                core: 3.75, // 4 subjects: Eng, Nep, Math, Sci
+                other: 3.00 // 3 subjects: Social, Opt, Comp
+            };
+            const TOTAL_CH = 32.0;
+            // (4 * 1.25 * 4.0) + (3 * 1.0 * 4.0) = 32.0
+            const PRACTICAL_POINTS = 32.0; 
+
+            function updateGPA() {
+                // Collect Theory Grade Points
+                const gps = {
+                    eng: parseFloat(document.getElementById('th_english').value),
+                    nep: parseFloat(document.getElementById('th_nepali').value),
+                    mat: parseFloat(document.getElementById('th_maths').value),
+                    sci: parseFloat(document.getElementById('th_science').value),
+                    soc: parseFloat(document.getElementById('th_social').value),
+                    opt: parseFloat(document.getElementById('th_optmaths').value),
+                    com: parseFloat(document.getElementById('th_computer').value)
+                };
+
+                // Calculate Theory Weighted Points
+                const theoryPoints = 
+                    ((gps.eng + gps.nep + gps.mat + gps.sci) * WEIGHTS.core) +
+                    ((gps.soc + gps.opt + gps.com) * WEIGHTS.other);
+
+                const totalPoints = theoryPoints + PRACTICAL_POINTS;
+                const calculatedGpa = totalPoints / TOTAL_CH;
+
+                // Check for NG (Any theory grade 0.0)
+                const hasNG = Object.values(gps).some(v => v === 0.0);
+
+                // UI Updates
+                gpaValue.innerText = calculatedGpa.toFixed(2);
+                pointsSumDisplay.innerText = totalPoints.toFixed(2);
+                
+                const percent = (calculatedGpa / 4) * 100;
+                progressBar.style.width = `${percent}%`;
+
+                if (hasNG) {
+                    gpaValue.classList.add('text-red-500');
+                    gpaRemark.className = "inline-block px-5 py-2 rounded-2xl bg-red-100 text-red-700 font-bold text-sm mb-6";
+                    gpaRemark.innerText = "NOT GRADED (NG)";
+                    statusIndicator.className = "absolute top-0 left-0 w-full h-2 bg-red-500";
+                } else {
+                    gpaValue.classList.remove('text-red-500');
+                    updateRemark(calculatedGpa);
+                }
+                
+                // Animate value
+                gpaValue.style.transform = 'scale(1.05)';
+                setTimeout(() => gpaValue.style.transform = 'scale(1)', 100);
+            }
+
+            function updateRemark(gpa) {
+                let text = "OUTSTANDING";
+                let style = "bg-green-100 text-green-700";
+                let color = "bg-green-500";
+
+                if (gpa >= 3.6) { text = "OUTSTANDING"; style = "bg-green-100 text-green-700"; color="bg-green-500"; }
+                else if (gpa >= 3.2) { text = "EXCELLENT"; style = "bg-emerald-100 text-emerald-700"; color="bg-emerald-500"; }
+                else if (gpa >= 2.8) { text = "VERY GOOD"; style = "bg-blue-100 text-blue-700"; color="bg-blue-500"; }
+                else if (gpa >= 2.4) { text = "GOOD"; style = "bg-indigo-100 text-indigo-700"; color="bg-indigo-500"; }
+                else if (gpa >= 2.0) { text = "SATISFACTORY"; style = "bg-yellow-100 text-yellow-700"; color="bg-yellow-500"; }
+                else { text = "ACCEPTABLE"; style = "bg-orange-100 text-orange-700"; color="bg-orange-500"; }
+
+                gpaRemark.className = `inline-block px-5 py-2 rounded-2xl ${style} font-bold text-sm mb-6`;
+                gpaRemark.innerText = text;
+                statusIndicator.className = `absolute top-0 left-0 w-full h-2 ${color}`;
+            }
+
+            inputs.forEach(input => input.addEventListener('change', updateGPA));
+            updateGPA(); // Initial run
+        });
+    </script>
+</body>
+</html>
